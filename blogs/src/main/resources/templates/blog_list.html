@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/blog_list.css}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img th:src="@{/img/1130030.jpg}" alt="">
+        <span class="title">MY BLOG</span>
+         <!-- 使用 span 把左右两侧的元素给撑开 -->
+         <span class="spacer"></span>
+        <!--<a href="blog_list.html">カテゴリ一覧</a> -->
+        <a th:href="@{/blog/register}">投稿記事</a> 
+        <a th:href="@{/logout}">ログアウト</a>
+    </div>
+    <!-- 版心 -->
+    <div class="container">
+        <!-- 左侧区域，显示用户信息 -->
+        <div class="container-left">
+            <!-- 用户详情 -->
+            <div class="card">
+                <!-- 用户的头像 -->
+                <img th:src="@{/img/R.jpg}" alt="">
+                <!-- 用户名 -->
+                <h3>DingQiShu</h3>
+                
+                <!-- 文章分类 -->
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <span>1</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧区域，显示博客列表 -->
+        <div class="container-right">
+            <!-- 每个 blog 代表一篇博客 -->
+            <div class="blog" th:each="blog:${blogList}">
+                <div class="title" th:text="${blog.blogTitle}"></div>
+                <div class="date" th:text="${blog.registerDate}"></div>
+                <div class="desc"th:text="${blog.message}">
+                    
+                </div>
+                <a th:href="'/blog/detail/'+${blog.blogId}" class="detail">查看全文&gt;&gt;</a>
+                <a th:href="'/blog/edit/'+${blog.blogId}" class="detail">修改&gt;&gt;</a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

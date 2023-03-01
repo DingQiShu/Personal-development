@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>登录页</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}">
+	<link rel="stylesheet" th:href="@{/css/blog-login.css}">
+</head>
+
+<body>
+	<!-- 导航栏 -->
+	<div class="nav">
+		<img th:src="@{/img/1130030.jpg}" alt="">
+		<span class="title">MY BLOG</span>
+		<!-- 使用 span 把左右两侧的元素给撑开 -->
+		<span class="spacer"></span>
+		<!--<a href="blog_list.html">カテゴリ一覧</a>-->
+		<a href="blog_edit.html">投稿記事</a>
+		<a href="blog_login.html">ログアウト</a>
+	</div>
+	<!--登录页面的版心 -->
+	<form th:action="@{/blog/register}" method="post">
+		<div class="login-container">
+			<div class="login-dialog">
+				<h3>BlogRegister</h3>
+				<div class="row1">
+					<span>タイトル</span>
+					<input type="text" id="user_name" name="blogTitle">
+				</div>
+
+				<div class="row1">
+					<span>カテゴリー名</span>
+					<input type="text" id="password" name="categoryName">
+				</div>
+
+				<div class="row1">
+					<span>メッセージ</span>
+					<input type="text" id="message" name="message">
+				</div>
+				<div class="row1">
+					<span>登録日</span>
+					<input type="date" id="registerDate" name="registerDate">
+				</div>
+
+				<div class="row2">
+					<input type="submit" value="submit" id="submit">
+				</div>
+
+			</div>
+
+		</div>
+	</form>
+
+</body>
+
+</html>

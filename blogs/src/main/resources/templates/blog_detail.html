@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客详情页</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/blog_detail.css}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img th:src="@{/img/1130030.jpg}" alt="">
+        <span class="title">MY BLOG</span>
+         <!-- 使用 span 把左右两侧的元素给撑开 -->
+         <span class="spacer"></span>
+        <!--<a href="blog_list.html">カテゴリ一覧</a> -->
+        <a th:href="@{/blog/register}">投稿記事</a>
+        <a href="blog_login.html">ログアウト</a>
+    </div>
+    <!-- 版心 -->
+    <div class="container">
+        <!-- 左侧区域，显示用户信息 -->
+        <div class="container-left">
+            <!-- 用户详情 -->
+            <div class="card">
+                <!-- 用户的头像 -->
+                <img th:src="@{/img/R.jpg}" alt="">
+                <!-- 用户名 -->
+                <h3>DingQiShu</h3>
+                
+                <!-- 文章分类 -->
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <span>1</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧区域，显示博客列表 -->
+        <div class="container-right">
+            <!-- 使用这个 div 来放博客内容 -->
+            <div class="blog-content">
+                <!-- 博客的标题 -->
+                <h3 th:text="${blogList.blogTitle}"></h3>
+                <!-- 博客的日期 -->
+                <div class="date" th:text="${blogList.blogTitle}">2023-2-24</div>
+                <!-- 博客的内容 -->
+                <div class="detail">
+                    <p th:text="${blogList.message}">
+                        
+                    </p>
+                    
+                </div>
+        </div>
+</body>
+</html>

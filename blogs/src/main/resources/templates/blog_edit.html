@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>blog_edit</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}">
+	<link rel="stylesheet" th:href="@{/css/blog_edit.css}">
+
+	<!-- 引入 editor.md 的依赖 -->
+
+
+</head>
+
+<body>
+	<!-- 导航栏 -->
+	<div class="nav">
+		<img th:src="@{/img/1130030.jpg}" alt="">
+		<span class="title">MY BLOG</span>
+		<!-- 使用 span 把左右两侧的元素给撑开 -->
+		<span class="spacer"></span>
+		<!--<a href="blog_list.html">カテゴリ一覧</a>-->
+		<a th:href="@{/blog/register}">投稿記事</a>
+		<a href="blog_login.html">ログアウト</a>
+	</div>
+	<!-- 版心 -->
+	<form th:action="@{/blog/update}" method="post">
+		<div class="blog-edit-container">
+			<!-- 标题编辑区 -->
+			<div class="title">
+				<input type="text" placeholder="在这里写下文章标题" id="title" name="blogTitle" th:value="${blogList.blogTitle}">
+				<input type="text" placeholder="在这里写下文章标题" id="title" name="message"
+					th:value="${blogList.message}"><br><br>
+				<input type="hidden" placeholder="在这里写下文章标题" id="title" name="blogId" th:value="${blogList.blogId}">
+				<input type="submit" value="发布文章" id="submit">
+			</div>
+			<!-- 创建编辑器标签 -->
+			<!--			<div id="editorDiv">-->
+			<!--				 需要在这里加上一个隐藏的 textarea -->
+			<!--				 属于editor.md 这个库的要求 -->
+			<!--				<textarea id="editor-markdown" style="display:none;" name="message"></textarea>-->
+			<!--				<textarea id="editor-markdown" name="message" style="display:none;"></textarea>-->
+			<!--			</div>-->
+		</div>
+	</form>
+	<form method="post" th:action="@{/blog/delete}">
+		<input type="hidden" name="blogId" th:value="${blogList.blogId}">
+		<button class="dalete">删除</button>
+	</form>
+	<!--	<link rel="stylesheet" th:href="@{/editor.md/css/editormd.min.css}" />-->
+	<!--	<script th:src="@{/js/jquery.min.js}"></script>-->
+	<!--	<script th:src="@{/editor.md/editormd.js}"></script>-->
+	<!--	<script th:inline="javascript">-->
+	<!--		// 初始化编辑器-->
+	<!--		var editor;-->
+	<!--		function initEdit(md) {-->
+	<!--			// 编辑器设置-->
+	<!--			editor = editormd("editorDiv", {-->
+	<!--				// 这里的尺寸必须在这里设置. 设置样式会被 editormd 自动覆盖掉. -->
+	<!--				width: "100%",-->
+	<!--				// 高度 100% 意思是和父元素一样高. 要在父元素的基础上去掉标题编辑区的高度-->
+	<!--				height: "calc(100% - 50px)",-->
+	<!--				// 编辑器中的初始内容-->
+	<!--				markdown: md,-->
+	<!--				// 指定 editor.md 依赖的插件路径-->
+	<!--				path: "editor.md/lib/",-->
+	<!--				saveHTMLToTextarea: true // 加上这个属性，效果就是把编辑器里的内容给自动保存到textarea里-->
+	<!--			});-->
+	<!--		}-->
+	<!--		//initEdit("# 在这里写下一篇博客"); // 初始化编译器的值-->
+	<!--		initEdit(/*[[${blogList.message}]]*/);-->
+	<!--	</script>-->
+</body>
+
+</html>

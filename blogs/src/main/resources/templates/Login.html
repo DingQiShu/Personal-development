@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/change.css}" />
+    <script th:src="@{/js/change.js}"></script>
+</head>
+<body>
+<div class="control">
+    <div class="item">
+        <div class="active">Login</div><div><a th:href="@{/register}">register</a></div>
+    </div>
+    <div class="content">
+        <div style="display: block;">
+			<form th:action="@{/login}" method="post">
+            <p>Email Address</p >
+            <input type="text" placeholder="user_email" name="userEmail" />
+            <p>Password</p >
+            <input type="password" placeholder="password" name="password"/>
+            <br/>
+            <input type="submit" value="登録"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
